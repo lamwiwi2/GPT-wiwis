@@ -37,7 +37,6 @@ $(document).ready(function() {
   
   // 添加请求消息到窗口
   function addRequestMessage(message) {
-    $(".answer .tips").css({"display":"none"});    // 打赏卡隐藏
     chatInput.val('');
     let escapedMessage = escapeHtml(message);  // 对请求message进行转义，防止输入的是html而被浏览器渲染
     let requestMessageElement = $('<div class="message-bubble"><span class="chat-icon request-icon"></span><div class="message-text request"><p>' +  escapedMessage + '</p></div></div>');
@@ -339,13 +338,6 @@ $(document).ready(function() {
     }
   });
 
-  // 删除功能
-  $(".delete a").click(function(){
-    chatWindow.empty();
-    $(".answer .tips").css({"display":"flex"});
-    messages = [];
-    localStorage.removeItem("session");
-  });
 
   // 截图功能
   $(".screenshot a").click(function() {
